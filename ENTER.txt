@@ -1,0 +1,46 @@
+In Django, "views" refer to the part of the application that handles the logic for processing a web request and returning a web response. There are three main types of views in Django:
+
+1. Function-Based Views (FBV)
+These are Python functions that take a request object and return a response object.
+Simple and straightforward for small applications or specific tasks.
+
+Example:
+from django.http import HttpResponse
+def my_view(request):
+    return HttpResponse("Hello, this is a function-based view!")
+
+
+  
+2. Class-Based Views (CBV)
+These are classes that inherit from Django’s View class or its subclasses.
+Better for organizing code and reusing logic via inheritance and mixins.
+
+Example:
+from django.http import HttpResponse
+from django.views import View
+class MyView(View):
+    def get(self, request):
+        return HttpResponse("Hello, this is a class-based view!")
+
+
+  
+3. Generic Class-Based Views
+These are pre-built class-based views provided by Django to handle common patterns like:
+1.Displaying a list (ListView)
+2.Displaying a detail page (DetailView)
+3.Handling forms (CreateView, UpdateView, DeleteView)
+
+Example:
+from django.views.generic import ListView
+from .models import Article
+class ArticleListView(ListView):
+    model = Article
+    template_name = "articles/list.html"
+
+
+
+WHEN 2 USE?
+Type	Description	When to Use
+FBV	Simple function, returns HTTP response	Simple or quick views
+CBV	Class with get, post, etc. methods	When code reuse or organization is needed
+Generic CBV	Predefined views like ListView, DetailView	CRUD operations, DRY principle
