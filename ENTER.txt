@@ -40,7 +40,6 @@ class ArticleListView(ListView):
 
 
 WHEN 2 USE?
-Type	Description	When to Use
-FBV	Simple function, returns HTTP response	Simple or quick views
-CBV	Class with get, post, etc. methods	When code reuse or organization is needed
-Generic CBV	Predefined views like ListView, DetailView	CRUD operations, DRY principle
+FBV..................Simple function, returns HTTP response	Simple or quick views
+CBV..................Class with get, post, etc. methods When code reuse or organization is needed
+Generic CBV..........Predefined views like ListView, DetailView	CRUD operations, DRY principle
